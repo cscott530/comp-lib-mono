@@ -1,5 +1,7 @@
-name: CI
-on: [pull_request]
+name: Version Bump
+on: [push]
+  branches:
+    [main]
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
