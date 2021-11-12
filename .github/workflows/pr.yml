@@ -1,8 +1,7 @@
 name: Version Bump
-on: 
+on:
   push:
-    branches:
-      -main
+    branches: -main
 jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
@@ -34,17 +33,11 @@ jobs:
       - name: Build
         run: yarn build
 
-      - id: next_version
-        uses: zwaldowski/semver-release-action@v1
-          with:
-            dry_run: true
-            bump: ${{ … }}
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-
       - id: bump
         uses: zwaldowski/match-label-action@v1
         with:
           allowed: major,minor,patch
+
       - uses: zwaldowski/semver-release-action@v1
         with:
           bump: ${{ steps.bump.outputs.match }}
