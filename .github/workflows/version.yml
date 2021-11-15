@@ -23,9 +23,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - id: bump
-        uses: zwaldowski/match-label-action@v1
-        with:
-          allowed: major,minor,patch
+        uses: zwaldowski/match-label-action@v2
 
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
