@@ -1,4 +1,4 @@
-name: CI
+name: Versioning
 on: [push]
 jobs:
   build:
@@ -23,8 +23,8 @@ jobs:
         uses: remorses/bump-version@v8
         with:
           version_file: ./VERSION
-          prerelease_tag: alpha
-          ignore: dist, ignored_folder
+          # prerelease_tag: alpha
+          ignore: dist
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
