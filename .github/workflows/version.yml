@@ -24,6 +24,8 @@ jobs:
 
       - id: bump
         uses: zwaldowski/match-label-action@v2
+        with:
+          allowed: major,minor,patch
 
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
